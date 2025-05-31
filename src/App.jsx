@@ -1,0 +1,71 @@
+import { useState } from "react";
+import SlotGrid from "./components/SlotGrid/SlotGrid";
+import SpinButton from "./components/SpinButton/SpinButton";
+import GameHeader from "./components/GameHeader/GameHeader";
+import GameControls from "./components/GameControls/GameControls";
+import Paytable from "./components/Paytable/Paytable";
+import PaylinesViewer from "./components/PaylinesViewer/PaylinesViewer";
+import HistoryPanel from "./components/HistoryPanel/HistoryPanel";
+import { generateSpinGrid } from "./logic/spinEngine";
+import { checkWinningLines } from "./logic/checkLines";
+import "./App.css";
+
+const title = "🎰 Máquina Tragamonedas";
+
+const App = () => {
+  const [grid, setGrid] = useState(generateSpinGrid());
+  const [credits, setCredits] = useState(100);
+  const [lines, setLines] = useState(3);
+  const [lastWin, setLastWin] = useState(0);
+  const [totalWins, setTotalWins] = useState(0);
+  const [history, setHistory] = useState([]);
+
+  const handleSpin = () => {
+    const bet = lines * 1;
+    if (credits < bet)
+      return alert("Créditos insuficientes para esta apuesta.");
+
+    const newGrid = generateSpinGrid();
+    const linesToCheck = Array.from({ length: lines }, (_, i) => i + 1);
+    const { totalWinnings, winningLines } = checkWinningLines(
+      newGrid,
+      linesToCheck
+    );
+    const newCredits = credits - bet + totalWinnings;
+
+    setGrid(newGrid);
+    setCredits(newCredits);
+    setLastWin(totalWinnings);
+    setTotalWins((prev) => prev + totalWinnings);
+    setHistory((prev) => [
+      ...prev,
+      {
+        won: totalWinnings,
+        lines: winningLines,
+        grid: JSON.parse(JSON.stringify(newGrid)),
+      },
+    ]);
+  };
+
+  return (
+    <div className="app-container">
+      <div className="main-panel">
+        <div className="game-section">
+          <GameHeader title={title} credits={credits} totalWins={totalWins} />
+          <SlotGrid grid={grid} />
+          <SpinButton onSpin={handleSpin} disabled={credits < lines * 1} />
+          <GameControls lines={lines} setLines={setLines} lastWin={lastWin} />
+        </div>
+
+        <div className="info-section">
+          <Paytable />
+          <PaylinesViewer />
+        </div>
+      </div>
+
+      <HistoryPanel history={history} />
+    </div>
+  );
+};
+
+export default App;
