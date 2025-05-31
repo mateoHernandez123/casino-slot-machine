@@ -1,6 +1,5 @@
-// components/HistoryPanel/HistoryPanel.jsx
 import { SYMBOLS } from "../../data/symbols";
-
+import "./HistoryPanel.css";
 const HistoryPanel = ({ history }) => {
   const lastFive = history.slice(-30).reverse();
 

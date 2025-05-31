@@ -1,7 +1,6 @@
-// components/Paytable/Paytable.jsx
 import { PAYOUTS } from "../../data/paytable";
 import { SYMBOLS } from "../../data/symbols";
-
+import "./Paytable.css";
 const Paytable = () => (
   <div className="paytable-section">
     <h3>📊 Tabla de Pagos</h3>

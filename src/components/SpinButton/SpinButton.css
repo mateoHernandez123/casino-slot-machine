@@ -1,0 +1,15 @@
+.spin-button {
+  font-size: 20px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  background-color: #339d36;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.spin-button:hover {
+  background-color: #09550d;
+}

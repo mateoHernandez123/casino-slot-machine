@@ -1,5 +1,5 @@
-// components/PaylinesViewer/PaylinesViewer.jsx
 import { PAYLINES } from "../../data/paytable";
+import "./PaylinesViewer.css";
 
 const PaylinesViewer = () => {
   const renderPayline = (lineNumber) => {

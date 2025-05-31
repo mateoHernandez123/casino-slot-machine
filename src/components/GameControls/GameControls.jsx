@@ -1,3 +1,4 @@
+import "./GameControls.css";
 const GameControls = ({ lines, setLines, lastWin }) => {
   return (
     <div className="game-controls">
@@ -17,7 +18,7 @@ const GameControls = ({ lines, setLines, lastWin }) => {
         <div className="bet-info">
           <div className="info-item">
             <span className="info-icon">🎯</span>
-            <span>Costo: {lines} créditos</span>
+            <span>Costo: {lines * 10} créditos</span>
           </div>
           <div className={`info-item ${lastWin > 0 ? "winning" : ""}`}>
             <span className="info-icon">💲</span>

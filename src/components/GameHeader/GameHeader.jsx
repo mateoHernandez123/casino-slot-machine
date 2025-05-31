@@ -1,3 +1,4 @@
+import "./GameHeader.css";
 const GameHeader = ({ title, credits, totalWins }) => {
   return (
     <div className="game-header">

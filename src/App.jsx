@@ -14,17 +14,20 @@ const title = "🎰 Máquina Tragamonedas";
 
 const App = () => {
   const [grid, setGrid] = useState(generateSpinGrid());
-  const [credits, setCredits] = useState(100);
+  const [credits, setCredits] = useState(10000);
   const [lines, setLines] = useState(3);
   const [lastWin, setLastWin] = useState(0);
   const [totalWins, setTotalWins] = useState(0);
   const [history, setHistory] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSpin = () => {
-    const bet = lines * 1;
-    if (credits < bet)
-      return alert("Créditos insuficientes para esta apuesta.");
-
+    const bet = lines * 10;
+    if (credits < bet) {
+      setErrorMessage("Créditos insuficientes para esta apuesta.");
+      return;
+    }
+    setErrorMessage("");
     const newGrid = generateSpinGrid();
     const linesToCheck = Array.from({ length: lines }, (_, i) => i + 1);
     const { totalWinnings, winningLines } = checkWinningLines(
@@ -53,6 +56,14 @@ const App = () => {
         <div className="game-section">
           <GameHeader title={title} credits={credits} totalWins={totalWins} />
           <SlotGrid grid={grid} />
+          {errorMessage && (
+            <div
+              className="error-message"
+              style={{ color: "red", marginTop: "8px" }}
+            >
+              {errorMessage}
+            </div>
+          )}
           <SpinButton onSpin={handleSpin} disabled={credits < lines * 1} />
           <GameControls lines={lines} setLines={setLines} lastWin={lastWin} />
         </div>
