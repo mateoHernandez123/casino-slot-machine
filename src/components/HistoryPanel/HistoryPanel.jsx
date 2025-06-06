@@ -1,11 +1,11 @@
 import { SYMBOLS } from "../../data/symbols";
 import "./HistoryPanel.css";
 const HistoryPanel = ({ history }) => {
-  const lastFive = history.slice(-40).reverse();
+  const lastFive = history.slice(-10).reverse();
 
   return (
     <div className="history-panel">
-      <h3>📜 Últimas 40 jugadas</h3>
+      <h3>📜 Últimas 10 jugadas</h3>
       <table className="history-table">
         <thead>
           <tr>
