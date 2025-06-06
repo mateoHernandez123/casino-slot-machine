@@ -8,6 +8,7 @@ import PaylinesViewer from "./components/PaylinesViewer/PaylinesViewer";
 import HistoryPanel from "./components/HistoryPanel/HistoryPanel";
 import { generateSpinGrid } from "./logic/spinEngine";
 import { checkWinningLines } from "./logic/checkLines";
+import SimulationPanel from "./components/SimulationPanel/SimulationPanel";
 import "./App.css";
 
 const title = "🎰 Máquina Tragamonedas";
@@ -75,6 +76,10 @@ const App = () => {
       </div>
 
       <HistoryPanel history={history} />
+
+      <div className="simulation-section">
+        <SimulationPanel />
+      </div>
     </div>
   );
 };
