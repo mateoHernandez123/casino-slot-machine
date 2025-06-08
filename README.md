@@ -10,8 +10,8 @@ Bienvenido a la **Máquina Tragamonedas**: un proyecto interactivo y educativo d
   <img src="metodos-de-jugar.png" alt="Métodos de Jugar" width="420" style="margin-bottom: 16px;">
 </p>
 
-1. **Elige la cantidad de líneas**: Usa los controles para seleccionar cuántas líneas de pago quieres activar (de 1 a 3).
-2. **Apuesta**: Cada línea cuesta 10 créditos. El total apostado por jugada es `líneas x 10`.
+1. **Elige la cantidad de líneas**: Usa los controles para seleccionar cuántas líneas de pago quieres activar (Puedes elegir 1, 3 y 5).
+2. **Apuesta**: Cada línea cuesta 10 créditos. El total apostado por jugada es `líneas x 10` es decir, 3 lineas 30 y 5 lineas 50.
 3. **Haz girar**: Pulsa el botón "Girar" para lanzar la jugada. Se generará una cuadrícula aleatoria de símbolos.
 4. **Revisa el resultado**: Si alguna de las líneas activas tiene una combinación ganadora según la tabla de pagos, recibirás el premio correspondiente.
 5. **Consulta el historial**: A la derecha puedes ver el historial de jugadas, con los premios obtenidos y las combinaciones ganadoras.
@@ -30,7 +30,7 @@ Además de jugar manualmente, puedes analizar el comportamiento estadístico de 
 
 - Accede a la sección "Simulación de 10,000 Jugadas".
 - Haz clic en "Ejecutar Simulación".
-- El sistema realizará automáticamente 10,000 jugadas con la configuración actual (3 líneas, 10 créditos por línea).
+- El sistema realizará automáticamente 10,000 jugadas con la configuración actual (5 líneas, 10 créditos por línea).
 - Se mostrarán estadísticas clave: total apostado, total ganado, RTP, porcentaje de jugadas ganadoras y perdidas, ganancia máxima y mínima, etc.
 
 Esto te permite ver si el juego está equilibrado y cómo se comporta a largo plazo.
@@ -93,9 +93,9 @@ Puedes repetir la simulación varias veces para ver cómo varían los resultados
 
 Puedes modificar el balance del juego cambiando:
 
-- **La tabla de pagos** (`Paytable.jsx`): Ajusta los premios por combinación.
+- **La tabla de pagos**: Ajusta los premios por combinación.
 - **La cantidad de líneas jugadas**: Permite al jugador elegir más o menos líneas.
-- **La lógica de generación de símbolos** (`spinEngine.js`): Cambia la probabilidad de aparición de cada símbolo.
+- **La lógica de generación de símbolos**: Cambia la probabilidad de aparición de cada símbolo.
 
 Estos cambios afectan directamente el RTP y la experiencia del jugador.
 
@@ -103,6 +103,6 @@ Estos cambios afectan directamente el RTP y la experiencia del jugador.
 
 ## Conclusión
 
-Esta máquina tragamonedas es un ejemplo educativo para analizar el balance y la aleatoriedad en juegos de azar. La simulación te permite experimentar con diferentes configuraciones y ver cómo afectan al RTP y a la experiencia del usuario. ¡Modifica el código y prueba tus propias ideas para crear una máquina más (o menos) generosa!
+Esta máquina tragamonedas es un ejemplo educativo para analizar el balance y la aleatoriedad en juegos de azar. La simulación te permite experimentar con diferentes configuraciones y ver cómo afectan al RTP y a la experiencia del usuario.
 
 ---

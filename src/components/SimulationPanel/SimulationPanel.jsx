@@ -11,7 +11,7 @@ const SimulationPanel = () => {
     setLoading(true);
     setTimeout(() => {
       const totalSpins = 10000;
-      const lines = 3;
+      const lines = 5;
       const betPerSpin = lines * 10;
       let totalBet = 0;
       let totalWon = 0;
@@ -23,7 +23,7 @@ const SimulationPanel = () => {
 
       for (let i = 0; i < totalSpins; i++) {
         const grid = generateSpinGrid();
-        const linesToCheck = [1, 2, 3];
+        const linesToCheck = [1, 2, 3, 4, 5];
         const { totalWinnings } = checkWinningLines(grid, linesToCheck);
         totalBet += betPerSpin;
         totalWon += totalWinnings;
